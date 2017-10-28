@@ -1,3 +1,117 @@
 {
-
+  "name": "TelaBoilerplate",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "clean": "rm -rf $TMPDIR/react-* && watchman watch-del-all && npm cache clean --force",
+    "clean:android": "cd android/ && ./gradlew clean && cd .. && react-native run-android",
+    "newclear": "rm -rf $TMPDIR/react-* && watchman watch-del-all && rm -rf ios/build && rm -rf node_modules/ && npm cache clean --force && npm i",
+    "test:watch": "jest --watch",
+    "updateSnapshot": "jest --updateSnapshot",
+    "coverage": "jest --coverage && open coverage/lcov-report/index.html || xdg-open coverage/lcov-report/index.html",
+    "android:build": "cd android && ./gradlew assembleRelease",
+    "android:install": "cd android && ./gradlew assembleRelease && ./gradlew installRelease",
+    "android:hockeyapp": "cd android && ./gradlew assembleRelease && puck -submit=auto app/build/outputs/apk/app-release.apk",
+    "android:devices": "$ANDROID_HOME/platform-tools/adb devices",
+    "android:logcat": "$ANDROID_HOME/platform-tools/adb logcat *:S ReactNative:V ReactNativeJS:V",
+    "android:shake": "$ANDROID_HOME/platform-tools/adb devices | grep '\\t' | awk '{print $1}' | sed 's/\\s//g' | xargs -I {} $ANDROID_HOME/platform-tools/adb -s {} shell input keyevent 82",
+    "storybook": "storybook start -p 7007",
+    "lint": "standard --verbose | snazzy",
+    "lintdiff": "git diff --name-only --cached --relative | grep '\\.js$' | xargs standard | snazzy",
+    "fixcode": "standard --fix",
+    "git-hook": "npm run lint -s && npm run test -s"
+  },
+  "dependencies": {
+    "moment": "2.19.1",
+    "format-json": "^1.0.3",
+    "prop-types": "15.6.0",
+    "ramda": "0.25.0",
+    "react": "16.0.0",
+    "react-native": "0.49.5",
+    "react-native-animatable": "1.2.4",
+    "react-native-config": "0.9.0",
+    "react-native-device-info": "0.12.1",
+    "react-native-i18n": "2.0.9",
+    "react-native-vector-icons": "4.4.2",
+    "react-navigation": "1.0.0-beta.15",
+    "react-redux": "5.0.6",
+    "redux": "3.7.2",
+    "redux-persist": "5.1.0",
+    "redux-promise-middleware": "4.4.0",
+    "redux-thunk": "2.2.0",
+    "seamless-immutable": "7.1.2",
+    "config": "file:./App/Config/"
+  },
+  "devDependencies": {
+    "babel-core": "6.26.0",
+    "babel-jest": "21.2.0",
+    "babel-preset-react-native": "4.0.0",
+    "enzyme": "3.1.0",
+    "enzyme-adapter-react-16": "1.0.2",
+    "ignite-animatable": "^1.0.0",
+    "ignite-dev-screens": "^2.2.0",
+    "ignite-i18n": "^1.1.1",
+    "ignite-ir-boilerplate": "^2.2.2",
+    "ignite-standard": "^1.0.0",
+    "ignite-vector-icons": "^1.1.0",
+    "jest": "21.2.1",
+    "jest-cli": "21.2.1",
+    "react-addons-test-utils": "15.6.2",
+    "react-dom": "16.0.0",
+    "react-test-renderer": "16.0.0",
+    "reactotron-react-native": "1.12.3",
+    "reactotron-redux": "1.12.2",
+    "reactotron-redux-saga": "1.12.2",
+    "snazzy": "7.0.0",
+    "standard": "10.0.3"
+  },
+  "jest": {
+    "preset": "react-native",
+    "collectCoverage": true,
+    "coverageDirectory": "Coverage",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "style.js",
+      "connect.js",
+      "Tests/Setup.js"
+    ],
+    "testMatch": [
+      "**/Tests/**/*.js",
+      "**/?(*.)(spec|test).js?(x)"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "Tests/Setup.js"
+    ],
+    "setupFiles": [
+      "./Tests/Setup"
+    ],
+    "coverageReporters": [
+      "html"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|react-navigation)"
+    ]
+  },
+  "config": {},
+  "rnpm": {
+    "assets": []
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "globals": [
+      "describe",
+      "test",
+      "jest",
+      "expect",
+      "fetch",
+      "navigator",
+      "__DEV__",
+      "XMLHttpRequest",
+      "FormData",
+      "React$Element"
+    ]
+  }
 }

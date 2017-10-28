@@ -167,13 +167,6 @@ async function install (context) {
 
     await system.spawn(`ignite add ${boilerplate} ${debugFlag}`, { stdio: 'inherit' })
 
-    // now run install of Ignite Plugins
-    if (answers['dev-screens'] === 'Yes') {
-      await system.spawn(`ignite add dev-screens@"~>2.2.0" ${debugFlag}`, {
-        stdio: 'inherit'
-      })
-    }
-
     if (answers['vector-icons'] === 'react-native-vector-icons') {
       await system.spawn(`ignite add vector-icons@"~>1.0.0" ${debugFlag}`, {
         stdio: 'inherit'
