@@ -62,7 +62,6 @@ describe('generators', () => {
   })
 
   describe.skip('containers', () => {
-
     test('generate listview of type row works', async () => {
       await execa(IGNITE, ['g', 'list', 'TestRow', '--type=Row', '--codeType=listview', '--dataType=Single'], { preferLocal: false })
       expect(jetpack.exists('App/Containers/TestRow.js')).toBe('file')
