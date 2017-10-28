@@ -1,10 +1,3 @@
-# My Plugin
+# Ignite Tela Boilerplate
 
-This is where you would put an intro to your plugin, and maybe a few examples of usage. 
-
-## Example
-
-```js
-console.log("Hello World")
-```
-
+This is where an intro to our boilerplate should go 

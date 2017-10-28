@@ -1,32 +1,56 @@
 {
   "name": "ignite-tela-boilerplate",
-  "description": "A description of your plugin.",
+  "description": "Telaclaims boilerplate for scalable React Native apps.",
+  "repository": "githuborg/reponame",
+  "homepage": "",
   "version": "0.0.1",
   "license": "MIT",
   "author": {
-    "name": "Your Name",
+    "name": "Avi Charlop",
     "email": "test@example.com",
     "url": "https://example.com/path/to/your/plugin"
   },
+  "files": [
+    "boilerplate",
+    "commands",
+    "lib",
+    "templates",
+    "boilerplate.js",
+    "ignite.json",
+    "options.js",
+    "readme.md"
+  ],
   "scripts": {
     "lint": "standard",
-    "test": "ava",
-    "watch": "ava --watch",
-    "coverage": "nyc ava",
+    "test": "jest",
+    "watch": "jest --runInBand --watch",
+    "coverage": "jest --runInBand --coverage",
     "shipit": "np"
   },
   "standard": {
-    "parser": "babel-eslint"
+    "parser": "babel-eslint",
+    "globals": [
+      "__DEV__",
+      "jasmine",
+      "beforeAll",
+      "afterAll",
+      "test",
+      "expect",
+      "describe"
+    ]
   },
-  "url": "https://example.com/path/to/your/plugin",
-  "repository": "githuborg/reponame",
   "devDependencies": {
-    "ava": "^0.18.2",
     "babel-eslint": "^7.1.1",
+    "fs-jetpack": "^1.2.0",
+    "jest": "^21.2.1",
     "np": "^2.12.0",
     "nyc": "^10.1.2",
     "sinon": "^1.17.7",
-    "standard": "^8.6.0"
+    "standard": "^8.6.0",
+    "tempy": "^0.2.1"
+  },
+  "dependencies": {
+    "ramda": "^0.23.0"
   }
 }
 
