@@ -1,2 +1,3 @@
+const tmp = {}
 
-export default {}
+export default tmp
