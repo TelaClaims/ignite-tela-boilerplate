@@ -27,7 +27,7 @@ module.exports = async function (context) {
       name: 'type',
       type: 'list',
       message: typeComponentMessage,
-      choices: typeComponentChoices,
+      choices: typeComponentChoices
     })
     type = answers.type
   }

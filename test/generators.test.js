@@ -5,22 +5,10 @@ const tempy = require('tempy')
 const IGNITE = 'ignite'
 const APP = 'IntegrationTest'
 const BOILERPLATE = `${__dirname}/..`
+const FILE = 'Test'
 
 // calling the ignite cli takes a while
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 600000
-
-describe('without a linter', () => {
-  beforeAll(async () => {
-    // creates a new temp directory
-    process.chdir(tempy.directory())
-    await execa(IGNITE, ['new', APP, '--min', '--skip-git', '--no-lint', '--boilerplate', BOILERPLATE])
-    process.chdir(APP)
-  })
-
-  test('does not have a linting script', async () => {
-    expect(jetpack.read('package.json', 'json')['scripts']['lint']).toBe(undefined)
-  })
-})
 
 describe('generators', () => {
   beforeAll(async () => {
@@ -31,31 +19,29 @@ describe('generators', () => {
   })
 
   describe('component', () => {
-    const file = 'Test'
-
     test('stateless', async () => {
-      await execa(IGNITE, ['g', 'component', file, '--type=Stateless'], { preferLocal: false })
-      expect(jetpack.exists(`App/Components/${test}/index.js`)).toBe('file')
-      expect(jetpack.exists(`App/Components/${test}/test.js`)).toBe('file')
-      expect(jetpack.exists(`App/Components/${test}/styles.js`)).toBe('file')
+      await execa(IGNITE, ['g', 'component', FILE, '--type=Stateless'], { preferLocal: false })
+      expect(jetpack.exists(`App/Components/${FILE}/index.js`)).toBe('file')
+      expect(jetpack.exists(`App/Components/${FILE}/test.js`)).toBe('file')
+      expect(jetpack.exists(`App/Components/${FILE}/styles.js`)).toBe('file')
       const lint = await execa('npm', ['-s', 'run', 'lint'])
       expect(lint.stderr).toBe('')
     })
 
     test('component', async () => {
-      await execa(IGNITE, ['g', 'component', file, '--type=Component'], { preferLocal: false })
-      expect(jetpack.exists(`App/Components/${test}/index.js`)).toBe('file')
-      expect(jetpack.exists(`App/Components/${test}/test.js`)).toBe('file')
-      expect(jetpack.exists(`App/Components/${test}/styles.js`)).toBe('file')
+      await execa(IGNITE, ['g', 'component', FILE, '--type=Component'], { preferLocal: false })
+      expect(jetpack.exists(`App/Components/${FILE}/index.js`)).toBe('file')
+      expect(jetpack.exists(`App/Components/${FILE}/test.js`)).toBe('file')
+      expect(jetpack.exists(`App/Components/${FILE}/styles.js`)).toBe('file')
       const lint = await execa('npm', ['-s', 'run', 'lint'])
       expect(lint.stderr).toBe('')
     })
 
     test('pure component', async () => {
-      await execa(IGNITE, ['g', 'component', file, '--type=PureComponent'], { preferLocal: false })
-      expect(jetpack.exists(`App/Components/${test}/index.js`)).toBe('file')
-      expect(jetpack.exists(`App/Components/${test}/test.js`)).toBe('file')
-      expect(jetpack.exists(`App/Components/${test}/styles.js`)).toBe('file')
+      await execa(IGNITE, ['g', 'component', FILE, '--type=PureComponent'], { preferLocal: false })
+      expect(jetpack.exists(`App/Components/${FILE}/index.js`)).toBe('file')
+      expect(jetpack.exists(`App/Components/${FILE}/test.js`)).toBe('file')
+      expect(jetpack.exists(`App/Components/${FILE}/styles.js`)).toBe('file')
       const lint = await execa('npm', ['-s', 'run', 'lint'])
       expect(lint.stderr).toBe('')
     })

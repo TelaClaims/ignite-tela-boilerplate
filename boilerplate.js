@@ -42,7 +42,7 @@ async function install (context) {
 
   const name = parameters.third
   const spinner = print
-    .spin(`using the ${blue('TelaBoilerplate')} boilerplate V1 - Alpaca`)
+    .spin(`using the ${blue('Tela')} boilerplate V1 (Code name 'Alpaca')`)
     .succeed()
 
   // attempt to install React Native or die trying

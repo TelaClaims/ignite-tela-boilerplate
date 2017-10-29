@@ -3,10 +3,7 @@ import DebugConfig from 'config/DebugConfig'
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import RootContainer from 'containers'
-import createStore from './Redux'
-
-// create our store
-const store = createStore()
+import store from './store'
 
 /**
  * Provides an entry point into our application.  Both index.ios.js and index.android.js
