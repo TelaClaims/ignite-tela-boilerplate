@@ -35,6 +35,8 @@
       "beforeAll",
       "afterAll",
       "afterEach",
+      "fetch",
+      "Headers",
       "test",
       "expect",
       "describe"
