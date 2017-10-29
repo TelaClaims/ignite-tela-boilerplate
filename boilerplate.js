@@ -56,7 +56,7 @@ async function install (context) {
   filesystem.remove('__tests__')
   filesystem.remove('App.js')
 
-  // copy our App, Tests & storybook directories
+  // copy our App directory
   spinner.text = '▸ copying files'
   spinner.start()
   filesystem.copy(`${__dirname}/boilerplate/App`, `${process.cwd()}/App`, {

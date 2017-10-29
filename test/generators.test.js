@@ -18,17 +18,25 @@ describe('generators', () => {
     process.chdir(APP)
   })
 
+  afterEach(() => {
+    jetpack.remove(`App/Components/${FILE}`)
+  })
+
   describe('component', () => {
     test('stateless', async () => {
+      console.log()
+      const DIR = `App/Components/${FILE}`
+
       await execa(IGNITE, ['g', 'component', FILE, '--type=Stateless'], { preferLocal: false })
-      expect(jetpack.exists(`App/Components/${FILE}/index.js`)).toBe('file')
-      expect(jetpack.exists(`App/Components/${FILE}/test.js`)).toBe('file')
-      expect(jetpack.exists(`App/Components/${FILE}/styles.js`)).toBe('file')
+      expect(jetpack.exists(`${DIR}`)).toBe('dir')
+      expect(jetpack.exists(`${DIR}/index.js`)).toBe('file')
+      expect(jetpack.exists(`${DIR}/test.js`)).toBe('file')
+      expect(jetpack.exists(`${DIR}/styles.js`)).toBe('file')
       const lint = await execa('npm', ['-s', 'run', 'lint'])
       expect(lint.stderr).toBe('')
     })
 
-    test('component', async () => {
+    test.skip('component', async () => {
       await execa(IGNITE, ['g', 'component', FILE, '--type=Component'], { preferLocal: false })
       expect(jetpack.exists(`App/Components/${FILE}/index.js`)).toBe('file')
       expect(jetpack.exists(`App/Components/${FILE}/test.js`)).toBe('file')
@@ -37,7 +45,7 @@ describe('generators', () => {
       expect(lint.stderr).toBe('')
     })
 
-    test('pure component', async () => {
+    test.skip('pure component', async () => {
       await execa(IGNITE, ['g', 'component', FILE, '--type=PureComponent'], { preferLocal: false })
       expect(jetpack.exists(`App/Components/${FILE}/index.js`)).toBe('file')
       expect(jetpack.exists(`App/Components/${FILE}/test.js`)).toBe('file')
