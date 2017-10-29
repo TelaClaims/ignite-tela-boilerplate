@@ -1,5 +1,12 @@
 {
   
-    "generators": [ "container" ]
+  "generators": [
+    "container",
+    "component",
+    "container",
+    "list",
+    "redux",
+    "route"
+  ]
   
 }
