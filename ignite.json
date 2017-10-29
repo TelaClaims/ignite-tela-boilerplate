@@ -5,8 +5,7 @@
     "component",
     "container",
     "list",
-    "redux",
-    "route"
+    "redux"
   ]
   
 }
