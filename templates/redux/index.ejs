@@ -1,0 +1,9 @@
+import { DEFAULT_ACTION } from './constants'
+import defaultThunk from './thunk'
+
+export const defaultAction = () => {
+  return {
+    type: DEFAULT_ACTION,
+    payload: defaultThunk()
+  }
+}

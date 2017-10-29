@@ -1,0 +1,19 @@
+import {
+    DEFAULT_ACTION_PENDING
+    DEFAULT_ACTION_FULFILLED
+    DEFAULT_ACTION_REJECTED
+} from './constants
+import initialState from './initial-state'
+
+const reducer = (state = initialState, action) => {
+    switch(action.type) {
+        case DEFAULT_ACTION_PENDING:
+            return {...state, fetching: true, fetched: false, error: null}
+        case DEFAULT_ACTION_FULFILLED:
+            return {...state, default: action.payload, fetching: false, fetched: true, error: null}
+        case DEFAULT_ACTION_PENDING:
+            return {...state, fetching: false, fetched: true, error: action.payload}
+        default:
+            return state;
+    }
+}
