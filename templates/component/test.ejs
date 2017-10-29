@@ -12,21 +12,21 @@ beforeEach(() => {
 })
 
 describe('<%= props.name %>Component', () => {
-    describe('Snapshot', () => {
-        test('Renders', () => {
-            component = renderer.create(<Component {...props}/>)
-            const tree = component.toJSON()
-            expect(tree).toMatchSnapshot();
-        })
+  describe('Snapshot', () => {
+    test('Renders', () => {
+      component = renderer.create(<Component {...props}/>)
+      const tree = component.toJSON()
+      expect(tree).toMatchSnapshot()
     })
+  })
+  <%if (props.type !== 'Stateless') { %>
 
-    <%if (props.type !== 'Stateless') { %>
-    // describe('Lifecycle' () => { })
-    <% } %>
+  // describe('Lifecycle' () => { })
+  <% } %>
 
-    // describe('Methods', () => {
-    //     beforeEach(() => {
-    //         component = shallow(<Component {...props}/>).instance()
-    //     })
-    // })
+  // describe('Methods', () => {
+  //   beforeEach(() => {
+  //     component = shallow(<Component {...props}/>).instance()
+  //   })
+  // })
 })

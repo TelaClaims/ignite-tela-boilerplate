@@ -4,21 +4,21 @@ import { View, Text } from 'react-native'
 import Styles from './styles'
 
 export default class <%= props.name %> extends React.<%= props.type %> {
-    static propTypes = { }
+  static propTypes = { }
 
-    static defaultProps = { }
+  static defaultProps = { }
 
-    constructor(props) {
-        super(props}
+  constructor(props) {
+    super(props}
 
-        this.state = { }
-    }
+    this.state = { }
+  }
 
-    render () {
-        return (
-            <View style={Styles.container}>
-                <Text><%= props.name %> Component</Text>
-            </View>
-        )
-    }
+  render () {
+    return (
+      <View style={Styles.container}>
+        <Text><%= props.name %> Component</Text>
+      </View>
+    )
+  }
 }

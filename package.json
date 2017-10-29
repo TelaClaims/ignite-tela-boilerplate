@@ -1,14 +1,14 @@
 {
   "name": "ignite-tela-boilerplate",
   "description": "Telaclaims boilerplate for scalable React Native apps.",
-  "repository": "githuborg/reponame",
-  "homepage": "",
+  "repository": "https://github.com/TelaClaims/ignite-tela-boilerplate",
+  "homepage": "http://www.telaclaims.com",
   "version": "0.0.1",
   "license": "MIT",
   "author": {
     "name": "Avi Charlop",
-    "email": "test@example.com",
-    "url": "https://example.com/path/to/your/plugin"
+    "email": "avicharlop@gmail.com",
+    "url": "https://github.com/acharlop"
   },
   "files": [
     "boilerplate",
