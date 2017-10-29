@@ -37,7 +37,9 @@
       "afterEach",
       "test",
       "expect",
-      "describe"
+      "describe",
+      "fetch",
+      "Headers"
     ]
   },
   "devDependencies": {

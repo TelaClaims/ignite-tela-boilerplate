@@ -45,7 +45,7 @@ module.exports = async function (context) {
       target: `App/Components/${name}/styles.js`
     },
     {
-      template: 'component/test.ejs',
+      template: `component/${file}.test.ejs`,
       target: `App/Components/${name}/test.js`
     }
   ]
