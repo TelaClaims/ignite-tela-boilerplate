@@ -12,3 +12,5 @@
 * Fill out README files
 * Setup linting
     * allow vertical alignment
+    * trailing commas
+    
