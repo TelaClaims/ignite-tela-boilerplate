@@ -18,6 +18,7 @@
     "boilerplate.js",
     "ignite.json",
     "options.js",
+    "plugins.js",
     "readme.md"
   ],
   "scripts": {

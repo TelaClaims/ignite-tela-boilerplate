@@ -51,7 +51,8 @@ module.exports = async function (context) {
         choices: typeChoices
       })
       type = answers.type
-    } else {
+    } else if (type.toLowerCase() === 'grid') {
+      // handle command line arguments for sectionlist grid
       print.info(`SectionList does not support the 'numColumns' attribute\n`)
       print.info('We recommend nesting (it\'s a Bird release thing)')
       return
