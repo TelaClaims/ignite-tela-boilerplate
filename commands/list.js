@@ -68,19 +68,19 @@ module.exports = async function (context) {
 
   const jobs = [
     {
-      template: `component/${component}.ejs`,
+      template: `list/${component}.ejs`,
       target: `App/Components/${name}/component.js`
     },
     {
-      template: `component/${styles}.ejs`,
+      template: `list/${styles}.ejs`,
       target: `App/Components/${name}/styles.js`
     },
     {
-      template: `component/test.ejs`,
+      template: `list/test.ejs`,
       target: `App/Components/${name}/test.js`
     },
     {
-      template: `component/index.ejs`,
+      template: `list/index.ejs`,
       target: `App/Components/${name}/index.js`
     }
   ]
