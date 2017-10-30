@@ -7,10 +7,10 @@ const mapStateToProps = (state) => ({
   // Store props
 })
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch) => (
   bindActionCreators({
     // Action creators
   }, dispatch)
-})
+)
 
 export default connect(mapStateToProps, mapDispatchToProps)(<%= props.name %>)

@@ -27,7 +27,7 @@
     "watch": "jest --runInBand --watch",
     "coverage": "jest --runInBand --coverage",
     "shipit": "np",
-    "publish:new": "npm version patch && git push && npm publish"
+    "release:new": "npm version patch && git push && npm publish"
   },
   "standard": {
     "parser": "babel-eslint",
