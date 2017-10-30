@@ -3,7 +3,7 @@
   "description": "Telaclaims boilerplate for scalable React Native apps.",
   "repository": "https://github.com/TelaClaims/ignite-tela-boilerplate",
   "homepage": "http://www.telaclaims.com",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "MIT",
   "author": {
     "name": "Avi Charlop",
