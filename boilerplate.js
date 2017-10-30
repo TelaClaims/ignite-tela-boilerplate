@@ -33,10 +33,13 @@ async function install (context) {
     print,
     system,
     prompt,
-    template
+    template,
+    string
   } = context
   const { colors } = print
   const { red, yellow, bold, gray, blue } = colors
+
+  const { kebabCase } = string
 
   const perfStart = (new Date()).getTime()
 
@@ -88,6 +91,7 @@ async function install (context) {
   ]
   const templateProps = {
     name,
+    packageName: kebabCase(name),
     igniteVersion: ignite.version,
     reactNativeVersion: rnInstall.version,
     vectorIcons: answers['vector-icons'],
