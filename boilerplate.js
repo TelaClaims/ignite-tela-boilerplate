@@ -34,12 +34,12 @@ async function install (context) {
     system,
     prompt,
     template,
-    string
+    strings
   } = context
   const { colors } = print
   const { red, yellow, bold, gray, blue } = colors
 
-  const { kebabCase } = string
+  const { kebabCase } = strings
 
   const perfStart = (new Date()).getTime()
 
@@ -167,7 +167,7 @@ async function install (context) {
   try {
     // boilerplate adds itself to get plugin.js/generators etc
     // Could be directory, npm@version, or just npm name.  Default to passed in values
-    const boilerplate = parameters.options.b || parameters.options.boilerplate || 'ignite-ir-boilerplate'
+    const boilerplate = parameters.options.b || parameters.options.boilerplate || 'ignite-tela-boilerplate'
 
     await system.spawn(`ignite add ${boilerplate} ${debugFlag}`, { stdio: 'inherit' })
 
