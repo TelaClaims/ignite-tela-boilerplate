@@ -1,5 +1,8 @@
 # TODO
 
+* `react-native link` not working
+* Prefix for redux constants? Ex: auth reducer `DEFAULT_ACTION` or `AUTH_DEFAULT_ACTION`
+* Add test declerations to redux template
 * Add Route generator command
     * add '-nav' to file
     * add to nav or create new nav
@@ -16,4 +19,8 @@
 * Setup linting
     * allow vertical alignment
     * trailing commas
+* I18n folder structure not working as expected
+* Redux/index.js updated without necessary trailing comma
+* fix indentation
+* get `initialState.${default}` replacement in cli
     

@@ -5,9 +5,9 @@ import { connect } from 'react-redux'
 // More info here: https://facebook.github.io/react-native/docs/flatlist.html
 
 // Styles
-import styles from './Styles/<%= props.name %>Style'
+import Styles from './styles'
 
-class <%= props.name %> extends React.PureComponent {
+export default class <%= props.name %> extends React.PureComponent {
   /* ***********************************************************
   * STEP 1
   * This is an array of objects with the properties you desire
@@ -35,9 +35,9 @@ class <%= props.name %> extends React.PureComponent {
   *************************************************************/
   renderRow ({item}) {
     return (
-      <View style={styles.row}>
-        <Text style={styles.boldLabel}>{item.title}</Text>
-        <Text style={styles.label}>{item.description}</Text>
+      <View style={Styles.row}>
+        <Text style={Styles.boldLabel}>{item.title}</Text>
+        <Text style={Styles.label}>{item.description}</Text>
       </View>
     )
   }
@@ -49,18 +49,18 @@ class <%= props.name %> extends React.PureComponent {
   *************************************************************/
   // Render a header?
   renderHeader = () =>
-    <Text style={[styles.label, styles.sectionHeader]}> - Header - </Text>
+    <Text style={[Styles.label, Styles.sectionHeader]}> - Header - </Text>
 
   // Render a footer?
   renderFooter = () =>
-    <Text style={[styles.label, styles.sectionHeader]}> - Footer - </Text>
+    <Text style={[Styles.label, Styles.sectionHeader]}> - Footer - </Text>
 
   // Show this when data is empty
   renderEmpty = () =>
-    <Text style={styles.label}> - Nothing to See Here - </Text>
+    <Text style={Styles.label}> - Nothing to See Here - </Text>
 
   renderSeparator = () =>
-    <Text style={styles.label}> - ~~~~~ - </Text>
+    <Text style={Styles.label}> - ~~~~~ - </Text>
 
   // The default function if no Key is provided is index
   // an identifiable key is important if you plan on
@@ -86,9 +86,9 @@ class <%= props.name %> extends React.PureComponent {
 
   render () {
     return (
-      <View style={styles.container}>
+      <View style={Styles.container}>
         <FlatList
-          contentContainerStyle={styles.listContent}
+          contentContainerStyle={Styles.listContent}
           data={this.state.dataObjects}
           renderItem={this.renderRow}
           numColumns={2}
@@ -103,16 +103,3 @@ class <%= props.name %> extends React.PureComponent {
     )
   }
 }
-
-const mapStateToProps = (state) => {
-  return {
-    // ...redux state to props here
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(<%= props.name %>)

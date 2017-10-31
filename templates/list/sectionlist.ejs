@@ -5,9 +5,9 @@ import { connect } from 'react-redux'
 // More info here: https://facebook.github.io/react-native/docs/sectionlist.html
 
 // Styles
-import styles from './Styles/<%= props.name %>Style'
+import Styles from './styles'
 
-class <%= props.name %> extends React.PureComponent {
+export default class <%= props.name %> extends React.PureComponent {
   /* ***********************************************************
   * STEP 1
   * This is an array of objects with the properties you desire
@@ -64,9 +64,9 @@ class <%= props.name %> extends React.PureComponent {
   *************************************************************/
   renderItem ({section, item}) {
     return (
-      <View style={styles.row}>
-        <Text style={styles.boldLabel}>Section {section.key} - {item.title}</Text>
-        <Text style={styles.label}>{item.description}</Text>
+      <View style={Styles.row}>
+        <Text style={Styles.boldLabel}>Section {section.key} - {item.title}</Text>
+        <Text style={Styles.label}>{item.description}</Text>
       </View>
     )
   }
@@ -75,9 +75,9 @@ class <%= props.name %> extends React.PureComponent {
   renderSectionHeader ({section}) {
     switch (section.key) {
       case 'First':
-        return <View style={styles.sectionHeader}><Text style={styles.boldLabel}>First Section</Text></View>
+        return <View style={Styles.sectionHeader}><Text style={Styles.boldLabel}>First Section</Text></View>
       default:
-        return <View style={styles.sectionHeader}><Text style={styles.boldLabel}>Second Section</Text></View>
+        return <View style={Styles.sectionHeader}><Text style={Styles.boldLabel}>Second Section</Text></View>
     }
   }
 
@@ -90,25 +90,25 @@ class <%= props.name %> extends React.PureComponent {
   *************************************************************/
   // Render a header?
   renderHeader = () =>
-    <Text style={[styles.label, styles.sectionHeader]}> - Full List Header - </Text>
+    <Text style={[Styles.label, Styles.sectionHeader]}> - Full List Header - </Text>
 
   // Render a footer?
   renderFooter = () =>
-    <Text style={[styles.label, styles.sectionHeader]}> - Full List Footer - </Text>
+    <Text style={[Styles.label, Styles.sectionHeader]}> - Full List Footer - </Text>
 
   // Does each section need a footer?
   renderSectionFooter = () =>
-    <Text style={styles.label}> END SECTION!!!! </Text>
+    <Text style={Styles.label}> END SECTION!!!! </Text>
 
   // Show this when data is empty
   renderEmpty = () =>
-    <Text style={styles.label}> - Nothing to See Here - </Text>
+    <Text style={Styles.label}> - Nothing to See Here - </Text>
 
   renderSeparator = () =>
-    <Text style={styles.label}> - ~~~~~ - </Text>
+    <Text style={Styles.label}> - ~~~~~ - </Text>
 
   renderSectionSeparator = () =>
-    <Text style={styles.label}> \/\/\/\/\/\/\/\/ </Text>
+    <Text style={Styles.label}> \/\/\/\/\/\/\/\/ </Text>
 
   // The default function if no Key is provided is index
   // an identifiable key is important if you plan on
@@ -134,11 +134,11 @@ class <%= props.name %> extends React.PureComponent {
 
   render () {
     return (
-      <View style={styles.container}>
+      <View style={Styles.container}>
         <SectionList
           renderSectionHeader={this.renderSectionHeader}
           sections={this.state.data}
-          contentContainerStyle={styles.listContent}
+          contentContainerStyle={Styles.listContent}
           data={this.state.dataObjects}
           renderItem={this.renderItem}
           keyExtractor={this.keyExtractor}
@@ -154,16 +154,3 @@ class <%= props.name %> extends React.PureComponent {
     )
   }
 }
-
-const mapStateToProps = (state) => {
-  return {
-    // ...redux state to props here
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(<%= props.name %>)
